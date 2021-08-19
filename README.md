@@ -9,10 +9,8 @@ It's Vue, it's PureScript. Simple as that.
 
 <script setup>
 import Prelude
-import PureVue (expose, ref)
+import PureVue (ref)
 
 message = ref 'Hello World'
-
-expose message
 </script>
 ```
