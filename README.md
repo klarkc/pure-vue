@@ -7,7 +7,7 @@ It's Vue, it's PureScript. Simple as that.
   <div>{{message}}</div>
 <template>
 
-<script language="purescript" setup>
+<script setup language="purescript">
 module Main where
 
 import Prelude
