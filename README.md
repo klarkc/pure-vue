@@ -9,7 +9,7 @@ It's Vue, it's PureScript. Simple as that.
 
 <script setup language="purescript">
 import Prelude
-import PureVue (expose)
+import PureVue (expose, ref)
 
 message = ref 'Hello World'
 
