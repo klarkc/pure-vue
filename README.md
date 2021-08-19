@@ -8,8 +8,6 @@ It's Vue, it's PureScript. Simple as that.
 <template>
 
 <script setup language="purescript">
-module Main where
-
 import Prelude
 import PureVue (expose)
 
