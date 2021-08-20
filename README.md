@@ -1,5 +1,5 @@
 # pure-vue
-It's Vue, it's PureScript. Simple as that.
+It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). Simple as that.
 
 ```html
 <!-- Main.vue -->
