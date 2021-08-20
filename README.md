@@ -14,3 +14,7 @@ import PureVue (ref)
 message = ref 'Hello World'
 </script>
 ```
+
+⚠️ This is a Work in Progress
+
+Current Status: [POC planning](https://github.com/klarkc/pure-vue/issues/2)
