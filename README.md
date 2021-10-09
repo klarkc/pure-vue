@@ -11,6 +11,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 import Prelude
 import PureVue (ref)
 
+message :: Ref
 message = ref 'Hello World'
 </script>
 ```
