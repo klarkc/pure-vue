@@ -7,7 +7,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
   <div>{{message}}</div>
 <template>
 
-<script setup>
+<script setup lang="purs">
 import Prelude
 import PureVue (ref)
 
