@@ -19,3 +19,4 @@ message = ref 'Hello World'
 ⚠️ This is a Work in Progress
 
 Current Status: [POC planning](https://github.com/klarkc/pure-vue/issues/2)
+<img src="https://static.scarf.sh/a.png?x-pxid=1909a3af-ecab-4ef6-ae35-7bc65052c246" />
