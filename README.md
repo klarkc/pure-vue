@@ -9,7 +9,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 
 <script setup lang="purescript">
 import Prelude
-import PureVue (ref)
+import PureVue (Ref, ref)
 
 message :: Ref
 message = ref 'Hello World'
