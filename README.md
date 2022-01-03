@@ -4,14 +4,14 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 ```html
 <!-- Main.vue -->
 <template>
-  <div>{{message}}</div>
+  <div>{{ message }}</div>
 <template>
 
 <script setup lang="purescript">
 import Prelude
 import PureVue (Ref, ref)
 
-message :: Ref
+message :: Ref String
 message = ref 'Hello World'
 </script>
 ```
