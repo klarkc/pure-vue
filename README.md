@@ -4,15 +4,23 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 ```html
 <!-- Main.vue -->
 <template>
-  <div>{{ message }}</div>
+  <button @click="increment">
+    Count is: {{ count }}
+  </button>
 <template>
 
 <script setup lang="purescript">
 import Prelude
+import Effect (Effect)
 import PureVue (Ref, ref)
 
-message :: Ref String
-message = ref 'Hello World'
+count :: Ref Number
+count = ref 0
+
+increment :: Effect Unit
+increment = do
+  c <- count
+  set count (c + 1)
 </script>
 ```
 
