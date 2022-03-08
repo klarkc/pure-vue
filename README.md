@@ -26,7 +26,7 @@ increment = do
 
 ## Differences from Vue
 
-PureScript only allows side-effects inside the Effect monad, for that reason we can only access or mutate a Ref inside a `Effect` side-effect function. The Single File Component compiler is turning all `Ref`s into reactive state in the component setup hook.
+PureScript only allows side-effects inside the Effect monad, for that reason we can only access or mutate a Ref inside an `Effect` function. The Single File Component compiler is turning all `Ref`'s into reactive state in the component setup hook.
 
 ⚠️ This is a Work in Progress
 
