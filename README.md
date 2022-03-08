@@ -14,7 +14,7 @@ import Prelude
 import Effect (Effect)
 import PureVue (Ref, ref, set)
 
-count :: Ref Number
+count :: Ref Int
 count = ref 0
 
 increment :: Effect Unit
