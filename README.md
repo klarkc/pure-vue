@@ -19,7 +19,7 @@ count = ref 0
 
 increment :: Effect Unit
 increment = do
-  countValue <- get count
+  c <- get count
   set count (c + 1)
 </script>
 ```
