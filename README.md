@@ -12,10 +12,10 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script setup lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref(..), set, get)
+import PureVue (Ref, ref, set, get)
 
 count :: Ref Int
-count = Ref 0
+count = ref 0
 
 increment :: Effect Unit
 increment = do
