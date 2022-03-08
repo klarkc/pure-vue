@@ -12,17 +12,21 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script setup lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref, ref, set)
+import PureVue (Ref(..), set, get)
 
 count :: Ref Int
-count = ref 0
+count = Ref 0
 
 increment :: Effect Unit
 increment = do
-  c <- count
+  countValue <- get count
   set count (c + 1)
 </script>
 ```
+
+## Differences from Vue
+
+PureScript only allows side-effects inside the Effect monad, for that reason we can only access or mutate a Ref inside a `Effect` side-effect function. The Single File Component compiler is turning all `Ref`s into reactive state in the component setup hook.
 
 ⚠️ This is a Work in Progress
 
