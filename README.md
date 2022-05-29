@@ -17,7 +17,7 @@ import PureVue (Ref (ref), Bindings (bindings), Method (method), set, get, expos
 count :: Ref String Number
 count = ref "count" 0
 
-increment :: Method Effect Unit
+increment :: Method String (Effect Unit)
 increment = method "increment" $ (+) 1 <$> set count <*> get count
 
 setup :: Effect Bindings
