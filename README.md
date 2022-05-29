@@ -34,7 +34,7 @@ The central idea is, instead of dealing with Vue as a side-effect free library, 
 The build process would be something like this:
 
 ```
-vite build -> rollup purs build -> embed setup hook in the SFC
+vite build -> rollup purs build -> embed setup hook in the component options
 ```
 
 The advantage of doing this way is that the boilerplate required to build Vue SFC with PureScript is almostly done ([with Vite](https://vitejs.dev)). It also keeps the API isomorphic with Vue allowing a much smaller learning path to PureScript.
