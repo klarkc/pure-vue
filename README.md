@@ -21,7 +21,7 @@ increment :: Method String (Effect Unit)
 increment = method "increment" $ (+) 1 <$> set count <*> get count
 
 setup :: Effect Bindings
-setup = pure count <> pure increment
+setup = expose count <> expose increment
 </script>
 ```
 
