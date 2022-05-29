@@ -34,7 +34,7 @@ The central idea is, instead of dealing with Vue as a side-effect free library, 
 The build process would be something like this:
 
 ```
-vite build > rollup purs build -> embed setup hook
+vite build -> rollup purs build -> embed setup hook in the SFC
 ```
 
 ## Differences from Vue
