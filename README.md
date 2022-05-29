@@ -12,13 +12,13 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref), Bindings (bindings), set, get, expose, exposeMethod)
+import PureVue (Ref (ref), Bindings (bindings), Method (method), set, get, expose, exposeMethod)
 
 count :: Ref String Number
 count = ref "count" 0
 
-increment :: Effect Unit
-increment = (+) 1 <$> set count <*> get count
+increment :: Method Effect Unit
+increment = method "increment" $ (+) 1 <$> set count <*> get count
 
 setup :: Effect Bindings
 setup = do
