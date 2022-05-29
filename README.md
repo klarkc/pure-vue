@@ -19,8 +19,8 @@ count = ref "count" 0
 
 increment :: Ref String (Effect Unit)
 increment = readonly "increment" $ do
-  c <- get count
-  set count (c + 1)
+  value <- get count
+  set count (value + 1)
 
 setup :: Effect Bindings
 setup = expose count <> expose increment
