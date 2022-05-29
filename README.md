@@ -43,7 +43,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
-- `expose` is a type constructor to create the respective bindings in the component instance
+- `expose` always returns `Effect Bindings`, Bindings is just an object on the JS side, appending many `exposes` will create a single `Bidings` with everything exposed so far.
 
 ⚠️ This is a Work in Progress
 
