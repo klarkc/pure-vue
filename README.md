@@ -9,18 +9,22 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
   </button>
 <template>
 
-<script setup lang="purescript">
+<script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref, ref, set, get)
+import PureVue (Ref (ref), Bindings (bindings), set, get, expose, exposeMethod)
 
-count :: Ref Int
-count = ref 0
+count :: Ref String Number
+count = ref "count" 0
 
 increment :: Effect Unit
-increment = do
-  c <- get count
-  set count (c + 1)
+increment = (+) 1 <$> set count <*> get count
+
+setup :: Effect Bindings
+setup = do
+  expose count
+  exposeMethod increment
+  pure bindings
 </script>
 ```
 
@@ -31,12 +35,14 @@ The central idea is, instead of dealing with Vue as a side-effect free library, 
 The build process would be something like this:
 
 ```
-vite build > rollup purs build -> setup output
+vite build > rollup purs build -> embed setup hook
 ```
 
 ## Differences from Vue
 
-PureScript only allows side-effects inside the Effect monad, for that reason we can only access or mutate a Ref inside an `Effect` function. The Single File Component compiler is turning all `Ref`'s into reactive state in the component setup hook.
+- PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` inside an `Effect` function.
+- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does generate side-effects.
+- Because PureScript use static typing, we have `expose` and `exposeMethod` to build a `object` that will be merged and return by `bindings`.
 
 ⚠️ This is a Work in Progress
 
