@@ -18,7 +18,9 @@ count :: Ref String Number
 count = ref "count" 0
 
 increment :: Method String (Effect Unit)
-increment = method "increment" $ (+) 1 <$> set count <*> get count
+increment = method "increment" $ do
+  c <- get count
+  set count (c + 1)
 
 setup :: Effect Bindings
 setup = expose count <> expose increment
