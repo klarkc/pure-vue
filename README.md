@@ -37,6 +37,8 @@ The build process would be something like this:
 vite build -> rollup purs build -> embed setup hook in the SFC
 ```
 
+The advantage of doing this way is that the boilerplate required to build Vue SFC with PureScript is almostly done ([with Vite](https://vitejs.dev)). It also keeps the API isomorphic with Vue allowing a much smaller learning path to PureScript.
+
 ## Differences from Vue
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
