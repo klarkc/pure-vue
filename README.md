@@ -12,13 +12,13 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref), Bindings (expose), Method (method), set, get)
+import PureVue (Ref (ref, readonly), Bindings (expose), Method (method), set, get)
 
 count :: Ref String Number
 count = ref "count" 0
 
-increment :: Method String (Effect Unit)
-increment = method "increment" $ do
+increment :: Ref String (Effect Unit)
+increment = readonly "increment" $ do
   c <- get count
   set count (c + 1)
 
@@ -42,8 +42,8 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 ## Differences from Vue
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
-- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects.
-- `expose` is a type constructor to create bindings in the component instance
+- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
+- `expose` is a type constructor to create the respective bindings in the component instance
 
 ⚠️ This is a Work in Progress
 
