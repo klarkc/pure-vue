@@ -12,7 +12,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref), Bindings (bindings), Method (method), set, get, expose, exposeMethod)
+import PureVue (Ref (ref), Bindings (bindings), Method (method), set, get, expose)
 
 count :: Ref String Number
 count = ref "count" 0
@@ -21,10 +21,7 @@ increment :: Method String (Effect Unit)
 increment = method "increment" $ (+) 1 <$> set count <*> get count
 
 setup :: Effect Bindings
-setup = do
-  expose count
-  exposeMethod increment
-  pure bindings
+setup = pure count <> pure increment
 </script>
 ```
 
