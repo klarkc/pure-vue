@@ -14,7 +14,7 @@ import Prelude
 import Effect (Effect)
 import PureVue (Ref (ref, readonly), Bindings, expose, set, get)
 
-count :: Ref String Number
+count :: Ref String Int
 count = ref "count" 0
 
 increment :: Ref String (Effect Unit)
