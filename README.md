@@ -42,7 +42,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 ## Differences from Vue
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
-- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does generate side-effects.
+- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects.
 - `expose` is a type constructor to create bindings in the component instance
 
 ⚠️ This is a Work in Progress
