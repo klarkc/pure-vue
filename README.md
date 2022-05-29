@@ -39,9 +39,9 @@ vite build > rollup purs build -> embed setup hook
 
 ## Differences from Vue
 
-- PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` inside an `Effect` function.
+- PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does generate side-effects.
-- Because PureScript use static typing, we have `expose` and `exposeMethod` to build a `object` that will be merged and return by `bindings`.
+- `expose` is a helper to create bindings in the component instance
 
 ⚠️ This is a Work in Progress
 
