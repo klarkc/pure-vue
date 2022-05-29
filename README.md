@@ -12,7 +12,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref), Bindings (bindings), Method (method), set, get, expose)
+import PureVue (Ref (ref), Bindings (expose), Method (method), set, get, expose)
 
 count :: Ref String Number
 count = ref "count" 0
@@ -41,7 +41,7 @@ vite build > rollup purs build -> embed setup hook
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does generate side-effects.
-- `expose` is a helper to create bindings in the component instance
+- `expose` is a type constructor to create bindings in the component instance
 
 ⚠️ This is a Work in Progress
 
