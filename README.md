@@ -27,7 +27,7 @@ setup :: Effect Unit
 setup = do
   expose count
   expose increment
-  discard $ watch count (log <<< append "new count: ")
+  discard $ watch count (log <<< append "count changed to: ")
 </script>
 ```
 
