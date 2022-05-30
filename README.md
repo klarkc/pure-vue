@@ -22,12 +22,17 @@ increment :: UnwrapRef String (Effect Unit)
 increment = readonly "increment" $ do
   value <- get count
   set count (value + 1)
+           
+log :: UnwrapRef String (Effect Unit)
+log = readonly "log" $ do
+  value <- get count
+  Effect.Console.log ("count changed to: " <> value)
 
 setup :: Effect Unit
 setup = do
   expose count
   expose increment
-  discard $ watch count (log <<< append "count changed to: ")
+  discard $ watch count log
 </script>
 ```
 
