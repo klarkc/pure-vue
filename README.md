@@ -47,7 +47,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
 - `setup` does not receive arguments, to access their values use the respective functions: `useProps` and `useContext`.
-- `setup` can only return a render function (TODO: render type) or `Unit`, to define the template bindings use `expose` function.
+- `setup` can only return a wrapped render function (TODO: render type) or `Unit`, to define the template bindings use `expose` function.
 - `expose` is a effectful function which exposes a `UnwrapRef` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as a [reactive](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) `Ref (unwrap)` value, and returns it in the `Effect` monad.
 
 ## Differences from PureScript
