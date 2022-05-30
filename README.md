@@ -1,6 +1,8 @@
 # pure-vue
 It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). Simple as that.
 
+⚠️ Work in Progress
+
 ```html
 <!-- Main.vue -->
 <template>
@@ -63,11 +65,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 ## Roadmap
 
+- Implement the proof of concept
 - Today we're setting template names using the `UnwrapRef` constructors, but I believe we can remove them by moving this responsability to the SFC compiler using purescript AST (complicated solution) or just compiled JavaScript function name (easier).
 - How we'll manage internal and external PureScript module dependencies.
 - How other components are gonna be imported from the PureScript side.
-
-⚠️ This is a Work in Progress
-
-Current Status: [POC planning](https://github.com/klarkc/pure-vue/issues/2)
-<img src="https://static.scarf.sh/a.png?x-pxid=1909a3af-ecab-4ef6-ae35-7bc65052c246" />
