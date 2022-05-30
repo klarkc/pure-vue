@@ -1,5 +1,5 @@
 # pure-vue
-[![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/klarkc/pure-vue/1)](https://github.com/users/klarkc/projects/1/views/1)
+[![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/klarkc/pure-vue/1)](https://github.com/users/klarkc/projects/1/views/2)
 [![Backers](https://img.shields.io/badge/backers-0-yellow)](https://handle.me/walkerleite)
 
 It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). Simple as that.
