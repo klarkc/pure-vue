@@ -12,12 +12,12 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref, readonly), expose, set, get)
+import PureVue (UnwrapRef (ref, readonly), expose, set, get)
 
-count :: Ref String Int
+count :: UnwrapRef String Int
 count = ref "count" 0
 
-increment :: Ref String (Effect Unit)
+increment :: UnwrapRef String (Effect Unit)
 increment = readonly "increment" $ do
   value <- get count
   set count (value + 1)
@@ -45,16 +45,15 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 ## Differences from Vue
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
-- Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
-- `expose` returns `Effect Binding`, where `Binding` is the current binding object in the JavaScript side.
+- Differently from Vue, we don't expect that you use `ref` inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
 - `setup` does not receive arguments, to access their values use the respective functions: `useProps` and `useContext`.
-- `setup` does not return anything, instead use `expose` function.
+- `setup` can only return render a function (optionally), to define the template bindings use `expose` function. It receives `UnwrapRef (ref, readonly)` and returns a reactive `Ref (unwrap)`.
 
 ## Differences from PureScript
 
 - We don't define a module with `module` keyword, the module definition is set by the SFC compiler before purs compilation.
 - The only exported function is `setup`, that is used as [setup hook](https://vuejs.org/api/composition-api-setup.html) in component options by the SFC compiler.
-- `expose` exposes a `Ref` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as compiled JavaScript code, the exposed value is reactive (it means that a change in the runtime value will trigger a component re-rendering).
+- `expose` exposes a `UnwrapRef` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as compiled JavaScript code, the exposed value (`Ref (unwrap)`) is reactive (it means that a change in it's value will trigger a component re-rendering).
 
 ⚠️ This is a Work in Progress
 
