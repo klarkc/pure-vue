@@ -12,7 +12,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import Effect.Console (log)
+import Effect.Console (log) as Effect.Console
 import PureVue (UnwrapRef (ref, readonly), expose, set, get, watch)
 
 count :: UnwrapRef String Int
