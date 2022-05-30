@@ -54,7 +54,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - We don't define a module with `module` keyword, the module definition is set by the SFC compiler before purs compilation.
 - The only exported function is `setup`, that is used as [setup hook](https://vuejs.org/api/composition-api-setup.html) in component options by the SFC compiler.
-- `expose` exposes a function to the Vue template, as JavaScript compiled code ([more about templates](https://vuejs.org/guide/essentials/template-syntax.html)).
+- `expose` exposes a `Ref` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as compiled JavaScript code, the exposed value is reactive (it means that a change in the runtime value will trigger a component re-rendering).
 
 ⚠️ This is a Work in Progress
 
