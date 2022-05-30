@@ -1,7 +1,8 @@
 # pure-vue
-It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). Simple as that.
+[![GitHub milestone](https://img.shields.io/github/milestones/progress-percent/klarkc/pure-vue/1)](https://github.com/users/klarkc/projects/1/views/1)
+[![Backers](https://img.shields.io/badge/backers-0-yellow)](https://handle.me/walkerleite)
 
-⚠️ Work in Progress
+It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). Simple as that.
 
 ```html
 <!-- Main.vue -->
@@ -62,10 +63,3 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - We don't define a module with `module` keyword, the module definition is set by the SFC compiler before purs compilation.
 - The only exported function is `setup`, that is used as [setup hook](https://vuejs.org/api/composition-api-setup.html) in component options by the SFC compiler.
-
-## Roadmap
-
-- Implement the proof of concept
-- Today we're setting template names using the `UnwrapRef` constructors, but I believe we can remove them by moving this responsability to the SFC compiler using purescript AST (complicated solution) or just compiled JavaScript function name (easier).
-- How we'll manage internal and external PureScript module dependencies.
-- How other components are gonna be imported from the PureScript side.
