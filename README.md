@@ -63,7 +63,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 ## Future
 
-Today we're setting template names using the `UnwrapRef` constructors, but I believe we can remove them by moving this logic to the SFC compiler using purescript AST (complicated solution) or just compiled JavaScript function name (easier).
+Today we're setting template names using the `UnwrapRef` constructors, but I believe we can remove them by moving this responsability to the SFC compiler using purescript AST (complicated solution) or just compiled JavaScript function name (easier).
 
 ⚠️ This is a Work in Progress
 
