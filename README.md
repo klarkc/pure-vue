@@ -12,7 +12,8 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (UnwrapRef (ref, readonly), expose, set, get)
+import Effect.Console (log)
+import PureVue (UnwrapRef (ref, readonly), expose, set, get, watch)
 
 count :: UnwrapRef String Int
 count = ref "count" 0
@@ -26,7 +27,7 @@ setup :: Effect Unit
 setup = do
   expose count
   expose increment
-  pure unit
+  discard $ watch count (log <<< append "new count: ")
 </script>
 ```
 
@@ -48,7 +49,7 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 - Differently from Vue, we don't expect that you use `ref` inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
 - `setup` does not receive arguments, to access their values use the respective functions: `useProps` and `useContext`.
 - `setup` can only return a wrapped render function (TODO: render type) or `Unit`, to define the template bindings use `expose` function.
-- `expose` is a effectful function which exposes a `UnwrapRef` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as a [reactive](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) `Ref (unwrap)` value, and returns it in the `Effect` monad.
+- `expose` is a effectful function which exposes a `UnwrapRef` to the [Vue template](https://vuejs.org/guide/essentials/template-syntax.html) as a [reactive](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) `Ref (unwrap)` value.
 
 ## Differences from PureScript
 
