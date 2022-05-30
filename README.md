@@ -12,7 +12,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref, readonly), Bindings, expose, set, get)
+import PureVue (Ref (ref, readonly), Binding, expose, set, get)
 
 count :: Ref String Int
 count = ref "count" 0
@@ -22,8 +22,11 @@ increment = readonly "increment" $ do
   value <- get count
   set count (value + 1)
 
-setup :: Effect Bindings
-setup = expose count <> expose increment
+setup :: Effect Unit
+setup = do
+  expose count
+  expose increment
+  pure unit
 </script>
 ```
 
@@ -43,8 +46,9 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
-- `expose` always returns `Effect Bindings`, where `Bindings` is a record that represents an object in the JavaScript side, appending many `Effect Bindings` will create a single `Effect Bidings` with everything exposed so far.
+- `expose` returns `Effect Binding`, where `Binding` is the current binding object in the JavaScript side.
 - `setup` does not receive arguments, to access their values use the respective functions: `useProps` and `useContext`.
+- `setup` does not return anything, instead use `expose` function.
 
 ## Differences from PureScript
 
