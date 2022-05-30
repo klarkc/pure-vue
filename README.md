@@ -12,7 +12,7 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 <script lang="purescript">
 import Prelude
 import Effect (Effect)
-import PureVue (Ref (ref, readonly), Binding, expose, set, get)
+import PureVue (Ref (ref, readonly), expose, set, get)
 
 count :: Ref String Int
 count = ref "count" 0
