@@ -43,7 +43,13 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - PureScript only allows side-effects inside the `Effect` monad, for that reason we can only access or mutate a `Ref` value inside an `Effect` monad.
 - Differently from Vue, we don't expect that you use `ref` ~only~ inside setup hook, our `ref` is just a type constructor and does not generate side-effects, the same applies for `readonly`.
-- `expose` always returns `Effect Bindings`, Bindings is just an object on the JS side, appending many `exposes` will create a single `Bidings` with everything exposed so far.
+- `expose` always returns `Effect Bindings`, where `Bindings` is a record that represents an object in the JavaScript side, appending many `Effect Bindings` will create a single `Effect Bidings` with everything exposed so far.
+
+## Differences from PureScript
+
+- We don't define a module with `module` keyword, the module definition is injected by the SFC compiler before purs compilation.
+- The only exported function is setup, that is used as [setup hook](https://vuejs.org/api/composition-api-setup.html) in component options by the SFC compiler.
+- `expose` exposes a function to the Vue template, as JavaScript compiled code ([more about templates](https://vuejs.org/guide/essentials/template-syntax.html))
 
 ⚠️ This is a Work in Progress
 
