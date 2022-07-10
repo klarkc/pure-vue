@@ -3,9 +3,23 @@ module Test.Main where
 import Prelude
 
 import Effect (Effect)
-import Effect.Class.Console (log)
+import Test.Assert (assertEqual)
+import PureVue (compileScript)
 
 main :: Effect Unit
 main = do
-  log "🍝"
-  log "You should add some tests."
+  let expCode = "return { foo: \"bar\" }"  
+  { content } <- compileScript """
+    <script lang="purescript">
+      import Prelude
+      import Effect (Effect)
+      import PureVue (UnwrapRef (never), expose)
+
+      foo :: UnwrapRef String String
+      foo = never "foo" "bar"
+
+      setup :: Effect Unit
+      setup = expose foo
+    </script>
+      """ { parse = \_ -> pure unit }
+  assertEqual { expected = expCode, actual = content }
