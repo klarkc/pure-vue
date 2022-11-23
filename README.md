@@ -16,13 +16,13 @@ It's [Vue](https://vuejs.org/), it's [PureScript](https://www.purescript.org/). 
 import Prelude
 import Effect (Effect)
 import Effect.Console (log) as Effect.Console
-import PureVue (UnwrapRef (ref, readonly), expose, set, get, watch)
+import PureVue (UnwrapRef, ref, readonly, expose, set, get, watch)
 
-count :: UnwrapRef String Int
-count = ref "count" 0
+count :: UnwrapRef "count" Int
+count = ref 0
 
-increment :: UnwrapRef String (Effect Unit)
-increment = readonly "increment" $ do
+increment :: UnwrapRef "increment" (Effect Unit)
+increment = readonly $ do
   value <- get count
   set count (value + 1)
            
