@@ -64,3 +64,11 @@ The advantage of doing this way is that the boilerplate required to build Vue SF
 
 - We don't define a module with `module` keyword, the module definition is set by the SFC compiler before purs compilation.
 - The only exported function is `setup`, that is used as [setup hook](https://vuejs.org/api/composition-api-setup.html) in component options by the SFC compiler.
+- 
+## Why I've Given Up on This Project
+
+There are a few reasons why I'm giving up on this project, after a [very insightful discussion on PureScript Discord](https://discord.com/channels/864614189094928394/865401680497737758/1212131706740412416):
+
+1. I realized the complexity of building a type-checking solution. Besides being outside the scope of the proof of concept, it would be essential to make this solution usable in any sense, and I don't have any expertise in this topic.
+2. To have type-checking in place, we would need to fork `@vue/language-core` to have a `vue-purs` alternative akin to `vue-tsc`. This would demand even a fork of the Vue language server itself.
+3. `@vue/language-core` is currently entangled with TypeScript ([see](https://github.com/vuejs/language-tools/blob/16635035be40be98e1f724f69cedbec50fcc295c/packages/language-core/lib/parsers/scriptRanges.ts#L2)).
